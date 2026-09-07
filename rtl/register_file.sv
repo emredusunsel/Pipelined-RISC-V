@@ -12,11 +12,11 @@ module register_file (
     output  logic   [31:0]  rs2_data_o
 );
     
-    logic [31:0] registers [32];
+    logic [31:0] registers [0:31];
 
     integer i;
 
-    always_ff @(posedge clk or negedge rstn) begin : register_block
+    always_ff @(negedge clk or negedge rstn) begin : register_block
         if (!rstn) begin
             for (i = 0; i < 32; i++)
                 registers[i] <= 32'd0;
