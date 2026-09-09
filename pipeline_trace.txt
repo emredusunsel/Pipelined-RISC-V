@@ -139,22 +139,22 @@ CYCLE 4    TIME = 56
 ============================================================
 
 [DECODE]
-Instruction D : 0x00302023
-rs1           : x0
-rs2           : x3
-rd            : x0
+Instruction D : 0x40118233
+rs1           : x3
+rs2           : x1
+rd            : x4
 RD1           : 0x00000000 (0)
 RD2           : 0x00000000 (0)
 
 [CONTROL]
-RegWriteD     : 0
-MemWriteD     : 1
+RegWriteD     : 1
+MemWriteD     : 0
 JumpD         : 0
 BranchD       : 0
-ALUSrcD       : 1
+ALUSrcD       : 0
 ResultSrcD    : 00
-ALUControlD   : 000
-ImmSrcD       : 01
+ALUControlD   : 001
+ImmSrcD       : 00
 
 [HAZARD]
 StallF        : 0
@@ -183,10 +183,10 @@ CYCLE 5    TIME = 66
 ============================================================
 
 [DECODE]
-Instruction D : 0x00002203
-rs1           : x0
-rs2           : x0
-rd            : x4
+Instruction D : 0x0021f2b3
+rs1           : x3
+rs2           : x2
+rd            : x5
 RD1           : 0x00000000 (0)
 RD2           : 0x00000000 (0)
 
@@ -195,9 +195,9 @@ RegWriteD     : 1
 MemWriteD     : 0
 JumpD         : 0
 BranchD       : 0
-ALUSrcD       : 1
-ResultSrcD    : 01
-ALUControlD   : 000
+ALUSrcD       : 0
+ResultSrcD    : 00
+ALUControlD   : 010
 ImmSrcD       : 00
 
 [HAZARD]
@@ -205,8 +205,8 @@ StallF        : 0
 StallD        : 0
 FlushD        : 0
 FlushE        : 0
-ForwardAE     : 00
-ForwardBE     : 10
+ForwardAE     : 10
+ForwardBE     : 00
 
 [MEMORY]
 ALUResultM    : 0x0000000c (12)
@@ -227,10 +227,186 @@ CYCLE 6    TIME = 76
 ============================================================
 
 [DECODE]
-Instruction D : 0x001202b3
-rs1           : x4
+Instruction D : 0x0020e333
+rs1           : x1
+rs2           : x2
+rd            : x6
+RD1           : 0x00000005 (5)
+RD2           : 0x00000007 (7)
+
+[CONTROL]
+RegWriteD     : 1
+MemWriteD     : 0
+JumpD         : 0
+BranchD       : 0
+ALUSrcD       : 0
+ResultSrcD    : 00
+ALUControlD   : 011
+ImmSrcD       : 00
+
+[HAZARD]
+StallF        : 0
+StallD        : 0
+FlushD        : 0
+FlushE        : 0
+ForwardAE     : 01
+ForwardBE     : 00
+
+[MEMORY]
+ALUResultM    : 0x00000007 (7)
+WriteDataM    : 0x00000005 (5)
+ReadDataM     : 0xxxxxxxxx (x)
+
+[WRITEBACK]
+RegWriteW     : 1
+RdW           : x3
+ResultW       : 0x0000000c (12)
+
+[REGISTERS]
+x0=0 x1=5 x2=7 x3=0
+x4=0 x5=0 x6=0 x7=0
+
+============================================================
+CYCLE 7    TIME = 86
+============================================================
+
+[DECODE]
+Instruction D : 0x0020a3b3
+rs1           : x1
+rs2           : x2
+rd            : x7
+RD1           : 0x00000005 (5)
+RD2           : 0x00000007 (7)
+
+[CONTROL]
+RegWriteD     : 1
+MemWriteD     : 0
+JumpD         : 0
+BranchD       : 0
+ALUSrcD       : 0
+ResultSrcD    : 00
+ALUControlD   : 101
+ImmSrcD       : 00
+
+[HAZARD]
+StallF        : 0
+StallD        : 0
+FlushD        : 0
+FlushE        : 0
+ForwardAE     : 00
+ForwardBE     : 00
+
+[MEMORY]
+ALUResultM    : 0x00000004 (4)
+WriteDataM    : 0x00000007 (7)
+ReadDataM     : 0xxxxxxxxx (x)
+
+[WRITEBACK]
+RegWriteW     : 1
+RdW           : x4
+ResultW       : 0x00000007 (7)
+
+[REGISTERS]
+x0=0 x1=5 x2=7 x3=12
+x4=0 x5=0 x6=0 x7=0
+
+============================================================
+CYCLE 8    TIME = 96
+============================================================
+
+[DECODE]
+Instruction D : 0x00302023
+rs1           : x0
+rs2           : x3
+rd            : x0
+RD1           : 0x00000000 (0)
+RD2           : 0x0000000c (12)
+
+[CONTROL]
+RegWriteD     : 0
+MemWriteD     : 1
+JumpD         : 0
+BranchD       : 0
+ALUSrcD       : 1
+ResultSrcD    : 00
+ALUControlD   : 000
+ImmSrcD       : 01
+
+[HAZARD]
+StallF        : 0
+StallD        : 0
+FlushD        : 0
+FlushE        : 0
+ForwardAE     : 00
+ForwardBE     : 00
+
+[MEMORY]
+ALUResultM    : 0x00000007 (7)
+WriteDataM    : 0x00000007 (7)
+ReadDataM     : 0xxxxxxxxx (x)
+
+[WRITEBACK]
+RegWriteW     : 1
+RdW           : x5
+ResultW       : 0x00000004 (4)
+
+[REGISTERS]
+x0=0 x1=5 x2=7 x3=12
+x4=7 x5=0 x6=0 x7=0
+
+============================================================
+CYCLE 9    TIME = 106
+============================================================
+
+[DECODE]
+Instruction D : 0x00002403
+rs1           : x0
+rs2           : x0
+rd            : x8
+RD1           : 0x00000000 (0)
+RD2           : 0x00000000 (0)
+
+[CONTROL]
+RegWriteD     : 1
+MemWriteD     : 0
+JumpD         : 0
+BranchD       : 0
+ALUSrcD       : 1
+ResultSrcD    : 01
+ALUControlD   : 000
+ImmSrcD       : 00
+
+[HAZARD]
+StallF        : 0
+StallD        : 0
+FlushD        : 0
+FlushE        : 0
+ForwardAE     : 00
+ForwardBE     : 00
+
+[MEMORY]
+ALUResultM    : 0x00000001 (1)
+WriteDataM    : 0x00000007 (7)
+ReadDataM     : 0xxxxxxxxx (x)
+
+[WRITEBACK]
+RegWriteW     : 1
+RdW           : x6
+ResultW       : 0x00000007 (7)
+
+[REGISTERS]
+x0=0 x1=5 x2=7 x3=12
+x4=7 x5=4 x6=0 x7=0
+
+============================================================
+CYCLE 10    TIME = 116
+============================================================
+
+[DECODE]
+Instruction D : 0x001404b3
+rs1           : x8
 rs2           : x1
-rd            : x5
+rd            : x9
 RD1           : 0x00000000 (0)
 RD2           : 0x00000005 (5)
 
@@ -259,22 +435,22 @@ ReadDataM     : 0xxxxxxxxx (x)
 
 [WRITEBACK]
 RegWriteW     : 1
-RdW           : x3
-ResultW       : 0x0000000c (12)
+RdW           : x7
+ResultW       : 0x00000001 (1)
 
 [REGISTERS]
-x0=0 x1=5 x2=7 x3=0
-x4=0 x5=0 x6=0 x7=0
+x0=0 x1=5 x2=7 x3=12
+x4=7 x5=4 x6=7 x7=0
 
 ============================================================
-CYCLE 7    TIME = 86
+CYCLE 11    TIME = 126
 ============================================================
 
 [DECODE]
-Instruction D : 0x001202b3
-rs1           : x4
+Instruction D : 0x001404b3
+rs1           : x8
 rs2           : x1
-rd            : x5
+rd            : x9
 RD1           : 0x00000000 (0)
 RD2           : 0x00000005 (5)
 
@@ -308,16 +484,16 @@ ResultW       : 0x00000000 (0)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=0 x5=0 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 8    TIME = 96
+CYCLE 12    TIME = 136
 ============================================================
 
 [DECODE]
-Instruction D : 0x00502223
+Instruction D : 0x00902223
 rs1           : x0
-rs2           : x5
+rs2           : x9
 rd            : x4
 RD1           : 0x00000000 (0)
 RD2           : 0x00000000 (0)
@@ -347,34 +523,34 @@ ReadDataM     : 0x0000000c (12)
 
 [WRITEBACK]
 RegWriteW     : 1
-RdW           : x4
+RdW           : x8
 ResultW       : 0x0000000c (12)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=0 x5=0 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 9    TIME = 106
+CYCLE 13    TIME = 146
 ============================================================
 
 [DECODE]
-Instruction D : 0x00528463
-rs1           : x5
-rs2           : x5
-rd            : x8
+Instruction D : 0x00402503
+rs1           : x0
+rs2           : x4
+rd            : x10
 RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
+RD2           : 0x00000007 (7)
 
 [CONTROL]
-RegWriteD     : 0
+RegWriteD     : 1
 MemWriteD     : 0
 JumpD         : 0
-BranchD       : 1
-ALUSrcD       : 0
-ResultSrcD    : 00
-ALUControlD   : 001
-ImmSrcD       : 10
+BranchD       : 0
+ALUSrcD       : 1
+ResultSrcD    : 01
+ALUControlD   : 000
+ImmSrcD       : 00
 
 [HAZARD]
 StallF        : 0
@@ -396,17 +572,105 @@ ResultW       : 0x00000000 (0)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=12 x5=0 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 10    TIME = 116
+CYCLE 14    TIME = 156
 ============================================================
 
 [DECODE]
-Instruction D : 0x06300313
+Instruction D : 0x00950463
+rs1           : x10
+rs2           : x9
+rd            : x8
+RD1           : 0x00000000 (0)
+RD2           : 0x00000000 (0)
+
+[CONTROL]
+RegWriteD     : 0
+MemWriteD     : 0
+JumpD         : 0
+BranchD       : 1
+ALUSrcD       : 0
+ResultSrcD    : 00
+ALUControlD   : 001
+ImmSrcD       : 10
+
+[HAZARD]
+StallF        : 1
+StallD        : 1
+FlushD        : 0
+FlushE        : 1
+ForwardAE     : 00
+ForwardBE     : 00
+
+[MEMORY]
+ALUResultM    : 0x00000004 (4)
+WriteDataM    : 0x00000011 (17)
+ReadDataM     : 0xxxxxxxxx (x)
+
+[WRITEBACK]
+RegWriteW     : 1
+RdW           : x9
+ResultW       : 0x00000011 (17)
+
+[REGISTERS]
+x0=0 x1=5 x2=7 x3=12
+x4=7 x5=4 x6=7 x7=1
+
+============================================================
+CYCLE 15    TIME = 166
+============================================================
+
+[DECODE]
+Instruction D : 0x00950463
+rs1           : x10
+rs2           : x9
+rd            : x8
+RD1           : 0x00000000 (0)
+RD2           : 0x00000011 (17)
+
+[CONTROL]
+RegWriteD     : 0
+MemWriteD     : 0
+JumpD         : 0
+BranchD       : 1
+ALUSrcD       : 0
+ResultSrcD    : 00
+ALUControlD   : 001
+ImmSrcD       : 10
+
+[HAZARD]
+StallF        : 0
+StallD        : 0
+FlushD        : 0
+FlushE        : 0
+ForwardAE     : 00
+ForwardBE     : 00
+
+[MEMORY]
+ALUResultM    : 0x00000004 (4)
+WriteDataM    : 0x00000007 (7)
+ReadDataM     : 0x00000011 (17)
+
+[WRITEBACK]
+RegWriteW     : 0
+RdW           : x4
+ResultW       : 0x00000004 (4)
+
+[REGISTERS]
+x0=0 x1=5 x2=7 x3=12
+x4=7 x5=4 x6=7 x7=1
+
+============================================================
+CYCLE 16    TIME = 176
+============================================================
+
+[DECODE]
+Instruction D : 0x06300593
 rs1           : x0
 rs2           : x3
-rd            : x6
+rd            : x11
 RD1           : 0x00000000 (0)
 RD2           : 0x0000000c (12)
 
@@ -426,24 +690,24 @@ StallD        : 0
 FlushD        : 1
 FlushE        : 1
 ForwardAE     : 01
-ForwardBE     : 01
+ForwardBE     : 00
 
 [MEMORY]
-ALUResultM    : 0x00000004 (4)
-WriteDataM    : 0x00000011 (17)
-ReadDataM     : 0xxxxxxxxx (x)
+ALUResultM    : 0x00000000 (0)
+WriteDataM    : 0x00000000 (0)
+ReadDataM     : 0x0000000c (12)
 
 [WRITEBACK]
 RegWriteW     : 1
-RdW           : x5
+RdW           : x10
 ResultW       : 0x00000011 (17)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=12 x5=0 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 11    TIME = 126
+CYCLE 17    TIME = 186
 ============================================================
 
 [DECODE]
@@ -479,22 +743,22 @@ ReadDataM     : 0x0000000c (12)
 
 [WRITEBACK]
 RegWriteW     : 0
-RdW           : x4
-ResultW       : 0x00000004 (4)
+RdW           : x0
+ResultW       : 0x00000000 (0)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 12    TIME = 136
+CYCLE 18    TIME = 196
 ============================================================
 
 [DECODE]
-Instruction D : 0x02a00313
+Instruction D : 0x00b00593
 rs1           : x0
-rs2           : x10
-rd            : x6
+rs2           : x11
+rd            : x11
 RD1           : 0x00000000 (0)
 RD2           : 0x00000000 (0)
 
@@ -528,29 +792,29 @@ ResultW       : 0x00000000 (0)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 13    TIME = 146
+CYCLE 19    TIME = 206
 ============================================================
 
 [DECODE]
-Instruction D : 0x0000006f
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
+Instruction D : 0x00208463
+rs1           : x1
+rs2           : x2
+rd            : x8
+RD1           : 0x00000005 (5)
+RD2           : 0x00000007 (7)
 
 [CONTROL]
-RegWriteD     : 1
+RegWriteD     : 0
 MemWriteD     : 0
-JumpD         : 1
-BranchD       : 0
+JumpD         : 0
+BranchD       : 1
 ALUSrcD       : 0
-ResultSrcD    : 10
-ALUControlD   : 000
-ImmSrcD       : 11
+ResultSrcD    : 00
+ALUControlD   : 001
+ImmSrcD       : 10
 
 [HAZARD]
 StallF        : 0
@@ -572,17 +836,17 @@ ResultW       : 0x00000000 (0)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
 ============================================================
-CYCLE 14    TIME = 156
+CYCLE 20    TIME = 216
 ============================================================
 
 [DECODE]
-Instruction D : 0x00000013
+Instruction D : 0x00c00613
 rs1           : x0
-rs2           : x0
-rd            : x0
+rs2           : x12
+rd            : x12
 RD1           : 0x00000000 (0)
 RD2           : 0x00000000 (0)
 
@@ -599,13 +863,13 @@ ImmSrcD       : 00
 [HAZARD]
 StallF        : 0
 StallD        : 0
-FlushD        : 1
-FlushE        : 1
+FlushD        : 0
+FlushE        : 0
 ForwardAE     : 00
 ForwardBE     : 00
 
 [MEMORY]
-ALUResultM    : 0x0000002a (42)
+ALUResultM    : 0x0000000b (11)
 WriteDataM    : 0x00000000 (0)
 ReadDataM     : 0xxxxxxxxx (x)
 
@@ -616,273 +880,5 @@ ResultW       : 0x00000000 (0)
 
 [REGISTERS]
 x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=0 x7=0
+x4=7 x5=4 x6=7 x7=1
 
-============================================================
-CYCLE 15    TIME = 166
-============================================================
-
-[DECODE]
-Instruction D : 0x00000000
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
-
-[CONTROL]
-RegWriteD     : 0
-MemWriteD     : 0
-JumpD         : 0
-BranchD       : 0
-ALUSrcD       : 0
-ResultSrcD    : 00
-ALUControlD   : 000
-ImmSrcD       : 00
-
-[HAZARD]
-StallF        : 0
-StallD        : 0
-FlushD        : 0
-FlushE        : 0
-ForwardAE     : 00
-ForwardBE     : 00
-
-[MEMORY]
-ALUResultM    : 0x00000000 (0)
-WriteDataM    : 0x00000000 (0)
-ReadDataM     : 0x0000000c (12)
-
-[WRITEBACK]
-RegWriteW     : 1
-RdW           : x6
-ResultW       : 0x0000002a (42)
-
-[REGISTERS]
-x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=0 x7=0
-
-============================================================
-CYCLE 16    TIME = 176
-============================================================
-
-[DECODE]
-Instruction D : 0x0000006f
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
-
-[CONTROL]
-RegWriteD     : 1
-MemWriteD     : 0
-JumpD         : 1
-BranchD       : 0
-ALUSrcD       : 0
-ResultSrcD    : 10
-ALUControlD   : 000
-ImmSrcD       : 11
-
-[HAZARD]
-StallF        : 0
-StallD        : 0
-FlushD        : 0
-FlushE        : 0
-ForwardAE     : 00
-ForwardBE     : 00
-
-[MEMORY]
-ALUResultM    : 0x00000000 (0)
-WriteDataM    : 0x00000000 (0)
-ReadDataM     : 0x0000000c (12)
-
-[WRITEBACK]
-RegWriteW     : 1
-RdW           : x0
-ResultW       : 0x0000002c (44)
-
-[REGISTERS]
-x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=42 x7=0
-
-============================================================
-CYCLE 17    TIME = 186
-============================================================
-
-[DECODE]
-Instruction D : 0x00000013
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
-
-[CONTROL]
-RegWriteD     : 1
-MemWriteD     : 0
-JumpD         : 0
-BranchD       : 0
-ALUSrcD       : 1
-ResultSrcD    : 00
-ALUControlD   : 000
-ImmSrcD       : 00
-
-[HAZARD]
-StallF        : 0
-StallD        : 0
-FlushD        : 1
-FlushE        : 1
-ForwardAE     : 00
-ForwardBE     : 00
-
-[MEMORY]
-ALUResultM    : 0x00000000 (0)
-WriteDataM    : 0x00000000 (0)
-ReadDataM     : 0x0000000c (12)
-
-[WRITEBACK]
-RegWriteW     : 0
-RdW           : x0
-ResultW       : 0x00000000 (0)
-
-[REGISTERS]
-x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=42 x7=0
-
-============================================================
-CYCLE 18    TIME = 196
-============================================================
-
-[DECODE]
-Instruction D : 0x00000000
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
-
-[CONTROL]
-RegWriteD     : 0
-MemWriteD     : 0
-JumpD         : 0
-BranchD       : 0
-ALUSrcD       : 0
-ResultSrcD    : 00
-ALUControlD   : 000
-ImmSrcD       : 00
-
-[HAZARD]
-StallF        : 0
-StallD        : 0
-FlushD        : 0
-FlushE        : 0
-ForwardAE     : 00
-ForwardBE     : 00
-
-[MEMORY]
-ALUResultM    : 0x00000000 (0)
-WriteDataM    : 0x00000000 (0)
-ReadDataM     : 0x0000000c (12)
-
-[WRITEBACK]
-RegWriteW     : 0
-RdW           : x0
-ResultW       : 0x00000000 (0)
-
-[REGISTERS]
-x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=42 x7=0
-
-============================================================
-CYCLE 19    TIME = 206
-============================================================
-
-[DECODE]
-Instruction D : 0x0000006f
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
-
-[CONTROL]
-RegWriteD     : 1
-MemWriteD     : 0
-JumpD         : 1
-BranchD       : 0
-ALUSrcD       : 0
-ResultSrcD    : 10
-ALUControlD   : 000
-ImmSrcD       : 11
-
-[HAZARD]
-StallF        : 0
-StallD        : 0
-FlushD        : 0
-FlushE        : 0
-ForwardAE     : 00
-ForwardBE     : 00
-
-[MEMORY]
-ALUResultM    : 0x00000000 (0)
-WriteDataM    : 0x00000000 (0)
-ReadDataM     : 0x0000000c (12)
-
-[WRITEBACK]
-RegWriteW     : 1
-RdW           : x0
-ResultW       : 0x0000002c (44)
-
-[REGISTERS]
-x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=42 x7=0
-
-============================================================
-CYCLE 20    TIME = 216
-============================================================
-
-[DECODE]
-Instruction D : 0x00000013
-rs1           : x0
-rs2           : x0
-rd            : x0
-RD1           : 0x00000000 (0)
-RD2           : 0x00000000 (0)
-
-[CONTROL]
-RegWriteD     : 1
-MemWriteD     : 0
-JumpD         : 0
-BranchD       : 0
-ALUSrcD       : 1
-ResultSrcD    : 00
-ALUControlD   : 000
-ImmSrcD       : 00
-
-[HAZARD]
-StallF        : 0
-StallD        : 0
-FlushD        : 1
-FlushE        : 1
-ForwardAE     : 00
-ForwardBE     : 00
-
-[MEMORY]
-ALUResultM    : 0x00000000 (0)
-WriteDataM    : 0x00000000 (0)
-ReadDataM     : 0x0000000c (12)
-
-[WRITEBACK]
-RegWriteW     : 0
-RdW           : x0
-ResultW       : 0x00000000 (0)
-
-[REGISTERS]
-x0=0 x1=5 x2=7 x3=12
-x4=12 x5=17 x6=42 x7=0
-
-
-============================================================
-             ALL TESTS PASSED
-============================================================

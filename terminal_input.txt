@@ -1,0 +1,9 @@
+rm -f sim.out
+
+iverilog -g2012 \
+    -s riscv_pipeline_flow_tb \
+    -o sim.out \
+    rtl/*.sv \
+    tb/[tb_name]_tb.sv
+
+vvp sim.out
