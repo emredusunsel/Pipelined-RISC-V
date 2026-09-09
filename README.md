@@ -1,9 +1,7 @@
 # Pipelined-RISC-V
-Pipelined RISC-V design written on SystemVerilog
+Pipelined RISC-V (BOOK) design written on SystemVerilog
 
 BOOK Version
-
-Needs to be tested more...
 
 Unsupported Instructions:
 - LB, LH, LBU, LHU
