@@ -1,0 +1,24 @@
+
+00000000:   00500093        addi    x1, x0, 5
+00000004:   00700113        addi    x2, x0, 7
+00000008:   002081b3        add     x3, x1, x2
+0000000c:   00302023        sw      x3, 0(x0)
+00000010:   00002203        lw      x4, 0(x0)
+00000014:   001202b3        add     x5, x4, x1
+00000014:   001202b3        add     x5, x4, x1
+00000018:   00502223        sw      x5, 4(x0)
+0000001c:   00528463        beq     x5, x5, 8
+00000020:   06300313        addi    x6, x0, 99
+
+00000000:   00000000        flushed bubble / cleared IF-ID register
+
+00000024:   02a00313        addi    x6, x0, 42
+00000028:   0000006f        jal     x0, 0
+
+0000002c:   00000013        addi    x0, x0, 0 (NOP)
+00000000:   00000000        flushed bubble / cleared IF-ID register
+00000028:   0000006f        jal     x0, 0
+0000002c:   00000013        addi    x0, x0, 0 (NOP)
+00000000:   00000000        flushed bubble / cleared IF-ID register
+00000028:   0000006f        jal     x0, 0
+0000002c:   00000013        addi    x0, x0, 0 (NOP)
